@@ -1,0 +1,1 @@
+# uwg-se-f26-money-manager-git-repos
