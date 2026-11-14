@@ -37,4 +37,15 @@ public class MainController {
 
 	@FXML
 	private Label leftOverTextField;
+	
+	@FXML
+	private void handleAddIncome() {
+		String input = this.incomeTextField.getText();
+		
+		if (input.isEmpty()) {
+			this.currentIncomeTextField.setText("income: INVALID INCOME");
+		} else {
+			this.currentIncomeTextField.setText("income: " + input);
+		}
+	}
 }

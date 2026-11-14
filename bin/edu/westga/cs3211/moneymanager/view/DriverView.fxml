@@ -7,10 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/26">
+<AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs3211.moneymanager.controller.MainController">
    <children>
-      <Button id="submitIncomeButton" fx:id="incomeButton" layoutX="168.0" layoutY="39.0" mnemonicParsing="false" text="Submit Income" />
+      <Button id="submitIncomeButton" fx:id="incomeButton" layoutX="168.0" layoutY="39.0" mnemonicParsing="false" onAction="#handleAddIncome" text="Submit Income" />
       <Button id="submitExpenseButton" fx:id="expenseButton" layoutX="168.0" layoutY="76.0" mnemonicParsing="false" text="Submit Expense" />
       <ListView fx:id="expenseListView" layoutX="40.0" layoutY="181.0" prefHeight="283.0" prefWidth="417.0" />
       <Label fx:id="expenseListLabel" layoutX="40.0" layoutY="142.0" text="Expenses-">
