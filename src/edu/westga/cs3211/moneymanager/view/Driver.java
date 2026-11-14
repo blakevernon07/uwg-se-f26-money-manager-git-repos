@@ -1,6 +1,11 @@
 package edu.westga.cs3211.moneymanager.view;
 
+import java.io.IOException;
+
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
@@ -16,8 +21,14 @@ public class Driver extends Application {
 	 * 
 	 * @param primaryStage The stage of the application.
 	 */
-	public void start(Stage primaryStage) {
+	public void start(Stage primaryStage) throws IOException {
+		Parent myParent = FXMLLoader.load(getClass().getResource("DriverView.fxml"));
 		
+		Scene myScene = new Scene(myParent);
+		
+		primaryStage.setTitle("Money Manager");
+		primaryStage.setScene(myScene);
+		primaryStage.show();
 	}
 	
 	/**
