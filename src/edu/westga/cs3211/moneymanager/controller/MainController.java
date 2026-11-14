@@ -54,7 +54,6 @@ public class MainController {
 			myAlert.setHeaderText("Invalid Income");
 			myAlert.setContentText("Please enter a valid number.");
 			myAlert.showAndWait();
-			
 		}
 	}
 }

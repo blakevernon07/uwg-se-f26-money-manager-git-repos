@@ -17,7 +17,7 @@ public class TestWhenCreateMoney {
 	 * @param expenses the expenses
 	 */
 	@ParameterizedTest
-	@CsvSource({ "100.0, 50.0", "500.0, 200.0", "1000.0, 750.0", "0.01, 0.01" })
+	@CsvSource({ "0.0, 0.0", "100.0, 50.0", "500.0, 200.0", "1000.0, 750.0", "0.01, 0.01" })
 	public void testConstructorValidValues(double income, double expenses) {
 
 		Money money = new Money(income, expenses);
@@ -32,7 +32,7 @@ public class TestWhenCreateMoney {
 	 * @param income the invalid income
 	 */
 	@ParameterizedTest
-	@CsvSource({ "0.0", "-1.0", "-100.0" })
+	@CsvSource({ "-0.01", "-1.0", "-100.0" })
 	public void testConstructorInvalidIncome(double income) {
 
 		assertThrows(IllegalArgumentException.class, () -> {
@@ -46,7 +46,7 @@ public class TestWhenCreateMoney {
 	 * @param expenses the invalid expenses
 	 */
 	@ParameterizedTest
-	@CsvSource({ "0.0", "-1.0", "-100.0" })
+	@CsvSource({ "-0.01", "-1.0", "-100.0" })
 	public void testConstructorInvalidExpenses(double expenses) {
 
 		assertThrows(IllegalArgumentException.class, () -> {
@@ -60,7 +60,7 @@ public class TestWhenCreateMoney {
 	 * @param income the new income
 	 */
 	@ParameterizedTest
-	@CsvSource({ "50.0", "100.0", "500.0", "1000.0" })
+	@CsvSource({ "0.0", "50.0", "100.0", "500.0", "1000.0" })
 	public void testSetTotalIncomeValid(double income) {
 
 		Money money = new Money(100.0, 50.0);
@@ -76,7 +76,7 @@ public class TestWhenCreateMoney {
 	 * @param income the invalid income
 	 */
 	@ParameterizedTest
-	@CsvSource({ "0.0", "-1.0", "-100.0" })
+	@CsvSource({ "-0.01", "-1.0", "-100.0" })
 	public void testSetTotalIncomeInvalid(double income) {
 
 		Money money = new Money(100.0, 50.0);
@@ -84,6 +84,8 @@ public class TestWhenCreateMoney {
 		assertThrows(IllegalArgumentException.class, () -> {
 			money.setTotalIncome(income);
 		});
+
+		assertEquals(100.0, money.getTotalIncome());
 	}
 
 	/**
@@ -92,7 +94,7 @@ public class TestWhenCreateMoney {
 	 * @param expenses the new expenses
 	 */
 	@ParameterizedTest
-	@CsvSource({ "50.0", "100.0", "500.0", "1000.0" })
+	@CsvSource({ "0.0", "50.0", "100.0", "500.0", "1000.0" })
 	public void testSetTotalExpensesValid(double expenses) {
 
 		Money money = new Money(100.0, 50.0);
@@ -108,7 +110,7 @@ public class TestWhenCreateMoney {
 	 * @param expenses the invalid expenses
 	 */
 	@ParameterizedTest
-	@CsvSource({ "0.0", "-1.0", "-100.0" })
+	@CsvSource({ "-0.01", "-1.0", "-100.0" })
 	public void testSetTotalExpensesInvalid(double expenses) {
 
 		Money money = new Money(100.0, 50.0);
@@ -116,5 +118,7 @@ public class TestWhenCreateMoney {
 		assertThrows(IllegalArgumentException.class, () -> {
 			money.setTotalExpenses(expenses);
 		});
+
+		assertEquals(50.0, money.getTotalExpenses());
 	}
 }
