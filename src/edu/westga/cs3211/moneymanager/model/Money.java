@@ -23,10 +23,10 @@ public class Money {
 	 */
 	public Money(double totalIncome, double totalExpenses) {
 		if (totalIncome <= 0.0) {
-			throw new IllegalArgumentException("totalIncome cannot be less than 0.");
+			throw new IllegalArgumentException("totalIncome cannot be less than or equal to 0.");
 		}
 		if (totalExpenses <= 0.0) {
-			throw new IllegalArgumentException("totalExpenses cannot be less than 0.");
+			throw new IllegalArgumentException("totalExpenses cannot be less than or equal to 0.");
 		}
 		
 		this.totalIncome = totalIncome;
@@ -61,7 +61,7 @@ public class Money {
 	 */
 	public void setTotalIncome(double newTotalIncome) {
 		if (newTotalIncome <= 0.0) {
-			throw new IllegalArgumentException("The new total income cannot be less than 0.");
+			throw new IllegalArgumentException("The new total income cannot be less than or equal to 0.");
 		}
 		
 		this.totalIncome = newTotalIncome;
@@ -77,7 +77,7 @@ public class Money {
 	 */
 	public void setTotalExpenses(double newTotalExpenses) {
 		if (newTotalExpenses <= 0.0) {
-			throw new IllegalArgumentException("The new total expenses cannot be less than 0.");
+			throw new IllegalArgumentException("The new total expenses cannot be less than or equal to 0.");
 		}
 		
 		this.totalExpenses = newTotalExpenses;
