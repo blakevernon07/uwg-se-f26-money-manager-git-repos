@@ -19,45 +19,45 @@ import javafx.scene.control.TextField;
 public class MainController {
 
 	@FXML
-    private Label balanceTextField;
+	private Label balanceTextField;
 
-    @FXML
-    private Button expenseButton;
+	@FXML
+	private Button expenseButton;
 
-    @FXML
-    private Label expenseListLabel;
+	@FXML
+	private Label expenseListLabel;
 
-    @FXML
-    private ListView<String> expenseListView;
+	@FXML
+	private ListView<String> expenseListView;
 
-    @FXML
-    private TextField expensesTextField;
+	@FXML
+	private TextField expensesTextField;
 
-    @FXML
-    private Button incomeButton;
+	@FXML
+	private Button incomeButton;
 
-    @FXML
-    private TextField incomeTextField;
-    
-    @FXML
-    private TextField reasonTextField;
-	
+	@FXML
+	private TextField incomeTextField;
+
+	@FXML
+	private TextField reasonTextField;
+
 	private Money myMoney = new Money(0.0, 0.0);
-	
+
 	@FXML
 	private void handleAddIncome() {
-		
+
 		try {
 			double income = Double.parseDouble(this.incomeTextField.getText());
-			
+
 			this.myMoney.addExpense(income, this.reasonTextField.getText(), true);
-			
+
 			this.expenseListView.setItems(FXCollections.observableArrayList(this.myMoney.getExpenses()));
-			
+
 			this.myMoney.setTotalIncome(this.myMoney.getTotalIncome() + income);
-			
+
 			this.balanceTextField.setText(String.format("Balance: $%.2f", this.myMoney.getTotalIncome()));
-			
+
 		} catch (IllegalArgumentException myException) {
 			Alert myAlert = new Alert(AlertType.ERROR);
 			myAlert.setTitle("Invalid Input");
@@ -66,30 +66,30 @@ public class MainController {
 			myAlert.showAndWait();
 		}
 	}
-	
+
 	@FXML
 	private void handleAddExpense() {
-		
+
 		try {
 			double expense = Double.parseDouble(this.expensesTextField.getText());
-			
+
 			this.myMoney.addExpense(expense, this.reasonTextField.getText(), false);
-			
+
 			this.myMoney.setTotalExpense(expense);
-			
+
 			this.expenseListView.setItems(FXCollections.observableArrayList(this.myMoney.getExpenses()));
-			
+
 			double newBalance = this.myMoney.getTotalIncome() - this.myMoney.getTotalExpense();
 			this.myMoney.setTotalIncome(newBalance);
-			
+
 			this.balanceTextField.setText(String.format("Balance: $%.2f", newBalance));
-			
+
 		} catch (IllegalArgumentException myException) {
 			Alert myAlert = new Alert(AlertType.ERROR);
-	        myAlert.setTitle("Invalid Input");
-	        myAlert.setHeaderText("Invalid Expense/Reason");
-	        myAlert.setContentText("Please enter a valid expense/reason.");
-	        myAlert.showAndWait();
+			myAlert.setTitle("Invalid Input");
+			myAlert.setHeaderText("Invalid Expense/Reason");
+			myAlert.setContentText("Please enter a valid expense/reason.");
+			myAlert.showAndWait();
 		}
 	}
 }

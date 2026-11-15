@@ -23,14 +23,14 @@ public class Driver extends Application {
 	 */
 	public void start(Stage primaryStage) throws IOException {
 		Parent myParent = FXMLLoader.load(getClass().getResource("DriverView.fxml"));
-		
+
 		Scene myScene = new Scene(myParent);
-		
+
 		primaryStage.setTitle("Money Manager");
 		primaryStage.setScene(myScene);
 		primaryStage.show();
 	}
-	
+
 	/**
 	 * Opens the application.
 	 * 

@@ -13,7 +13,7 @@ public class Money {
 	private double totalIncome;
 	private double totalExpense;
 	private ArrayList<String> expenses;
-	
+
 	/**
 	 * Creates the totalIncome and totalExpenses.
 	 * 
@@ -21,7 +21,7 @@ public class Money {
 	 * @precondition totalExpense !< 0.0.
 	 * @postcondition totalIncome and expenses are created.
 	 * 
-	 * @param totalIncome The total amount of income for a user.
+	 * @param totalIncome  The total amount of income for a user.
 	 * @param totalExpense The total expense the user enters.
 	 */
 	public Money(double totalIncome, double totalExpense) {
@@ -31,12 +31,12 @@ public class Money {
 		if (totalExpense < 0.0) {
 			throw new IllegalArgumentException("totalExpense cannot be less than 0.");
 		}
-		
+
 		this.totalIncome = totalIncome;
 		this.totalExpense = totalExpense;
 		this.expenses = new ArrayList<String>();
 	}
-	
+
 	/**
 	 * Gets the totalIncome.
 	 * 
@@ -45,7 +45,7 @@ public class Money {
 	public double getTotalIncome() {
 		return this.totalIncome;
 	}
-	
+
 	/**
 	 * Gets the totalExpense.
 	 * 
@@ -54,7 +54,7 @@ public class Money {
 	public double getTotalExpense() {
 		return this.totalExpense;
 	}
-	
+
 	/**
 	 * Gets the list of expenses() {
 	 * 
@@ -63,7 +63,7 @@ public class Money {
 	public ArrayList<String> getExpenses() {
 		return this.expenses;
 	}
-	
+
 	/**
 	 * Sets the totalIncome.
 	 * 
@@ -75,7 +75,7 @@ public class Money {
 	public void setTotalIncome(double newTotalIncome) {
 		this.totalIncome = newTotalIncome;
 	}
-	
+
 	/**
 	 * Sets the totalExpense.
 	 * 
@@ -88,10 +88,10 @@ public class Money {
 		if (newTotalExpense < 0.0) {
 			throw new IllegalArgumentException("The new total expense cannot be less than 0.");
 		}
-		
+
 		this.totalExpense = newTotalExpense;
 	}
-	
+
 	/**
 	 * Adds an expense to the list.
 	 * 
@@ -100,9 +100,9 @@ public class Money {
 	 * @precondition reasonValue != null.
 	 * @postcondition Adds a new value to the list of expenses.
 	 * 
-	 * @param newExpense The new value.
+	 * @param newExpense  The new value.
 	 * @param reasonValue The reason for the income/expense.
-	 * @param isIncome If the value is expense or income.
+	 * @param isIncome    If the value is expense or income.
 	 */
 	public void addExpense(double newExpense, String reasonValue, boolean isIncome) {
 		if (newExpense < 0.0) {
@@ -114,7 +114,7 @@ public class Money {
 		if (reasonValue.isEmpty()) {
 			throw new IllegalArgumentException("reasonValue cannot be empty.");
 		}
-		
+
 		if (isIncome) {
 			String value = String.format("$%.2f", newExpense);
 			String newValue = "+ " + value;
