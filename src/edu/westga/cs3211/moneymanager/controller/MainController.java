@@ -19,28 +19,25 @@ import javafx.scene.control.TextField;
 public class MainController {
 
 	@FXML
-	private Label currentIncomeTextField;
+    private Label balanceTextField;
 
-	@FXML
-	private Button expenseButton;
+    @FXML
+    private Button expenseButton;
 
-	@FXML
-	private Label expenseListLabel;
+    @FXML
+    private Label expenseListLabel;
 
-	@FXML
-	private ListView<Double> expenseListView;
+    @FXML
+    private ListView<Double> expenseListView;
 
-	@FXML
-	private TextField expensesTextField;
+    @FXML
+    private TextField expensesTextField;
 
-	@FXML
-	private Button incomeButton;
+    @FXML
+    private Button incomeButton;
 
-	@FXML
-	private TextField incomeTextField;
-
-	@FXML
-	private Label balanceTextField;
+    @FXML
+    private TextField incomeTextField;
 	
 	private Money myMoney = new Money(0.0, 0.0);
 	
@@ -52,7 +49,7 @@ public class MainController {
 			
 			this.myMoney.setTotalIncome(this.myMoney.getTotalIncome() + income);
 			
-			this.currentIncomeTextField.setText(String.format("Income: $%.2f", this.myMoney.getTotalIncome()));
+			this.balanceTextField.setText(String.format("Balance: $%.2f", this.myMoney.getTotalIncome()));
 			
 		} catch (NumberFormatException myException) {
 			Alert myAlert = new Alert(AlertType.ERROR);
@@ -71,11 +68,14 @@ public class MainController {
 			
 			this.myMoney.addExpense(expense);
 			
-			this.myMoney.setTotalExpense(this.myMoney.getTotalExpense() + expense);
+			this.myMoney.setTotalExpense(expense);
 			
 			this.expenseListView.setItems(FXCollections.observableArrayList(this.myMoney.getExpenses()));
 			
-			this.balanceTextField.setText(String.format("Balance: $%.2f", this.myMoney.getTotalIncome() - this.myMoney.getTotalExpense()));
+			double newBalance = this.myMoney.getTotalIncome() - this.myMoney.getTotalExpense();
+			this.myMoney.setTotalIncome(newBalance);
+			
+			this.balanceTextField.setText(String.format("Balance: $%.2f", newBalance));
 			
 		} catch (NumberFormatException myException) {
 			Alert myAlert = new Alert(AlertType.ERROR);

@@ -12,19 +12,14 @@
       <Button id="submitIncomeButton" fx:id="incomeButton" layoutX="168.0" layoutY="39.0" mnemonicParsing="false" onAction="#handleAddIncome" text="Submit Income" />
       <Button id="submitExpenseButton" fx:id="expenseButton" layoutX="168.0" layoutY="76.0" mnemonicParsing="false" onAction="#handleAddExpense" text="Submit Expense" />
       <ListView fx:id="expenseListView" layoutX="40.0" layoutY="181.0" prefHeight="283.0" prefWidth="417.0" />
-      <Label fx:id="expenseListLabel" layoutX="40.0" layoutY="142.0" text="Expenses-">
+      <Label fx:id="expenseListLabel" layoutX="40.0" layoutY="142.0" text="Log-">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <TextField fx:id="incomeTextField" layoutX="40.0" layoutY="39.0" prefHeight="25.0" prefWidth="112.0" promptText="Add Income" />
       <TextField fx:id="expensesTextField" layoutX="40.0" layoutY="76.0" prefHeight="25.0" prefWidth="112.0" promptText="Add Expenses" />
-      <Label fx:id="currentIncomeTextField" layoutX="300.0" layoutY="42.0" text="Income: ">
-         <font>
-            <Font size="13.0" />
-         </font>
-      </Label>
-      <Label fx:id="balanceTextField" layoutX="300.0" layoutY="79.0" text="Balance: ">
+      <Label fx:id="balanceTextField" layoutX="295.0" layoutY="42.0" text="Balance: ">
          <font>
             <Font size="13.0" />
          </font>
