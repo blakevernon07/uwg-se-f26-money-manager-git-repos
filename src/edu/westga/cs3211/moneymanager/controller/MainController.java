@@ -50,7 +50,7 @@ public class MainController {
 		try {
 			double income = Double.parseDouble(this.incomeTextField.getText());
 			
-			this.myMoney.addExpense(income, this.reasonTextField.getText());
+			this.myMoney.addExpense(income, this.reasonTextField.getText(), true);
 			
 			this.expenseListView.setItems(FXCollections.observableArrayList(this.myMoney.getExpenses()));
 			
@@ -73,7 +73,7 @@ public class MainController {
 		try {
 			double expense = Double.parseDouble(this.expensesTextField.getText());
 			
-			this.myMoney.addExpense(expense, this.reasonTextField.getText());
+			this.myMoney.addExpense(expense, this.reasonTextField.getText(), false);
 			
 			this.myMoney.setTotalExpense(expense);
 			

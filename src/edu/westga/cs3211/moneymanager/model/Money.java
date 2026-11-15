@@ -105,8 +105,10 @@ public class Money {
 	 * @postcondition Adds a new value to the list of expenses.
 	 * 
 	 * @param newExpense The new value.
+	 * @param reasonValue The reason for the income/expense.
+	 * @param isIncome If the value is expense or income.
 	 */
-	public void addExpense(double newExpense, String reasonValue) {
+	public void addExpense(double newExpense, String reasonValue, boolean isIncome) {
 		if (newExpense < 0.0) {
 			throw new IllegalArgumentException("The new expense cannot be less than 0.");
 		}
@@ -117,8 +119,16 @@ public class Money {
 			throw new IllegalArgumentException("reasonValue cannot be empty.");
 		}
 		
-		String value = String.format("$%.2f", newExpense);
-		value += " - Reason: " + reasonValue;
-		this.expenses.add(value);
+		if (isIncome) {
+			String value = String.format("$%.2f", newExpense);
+			String newValue = "+ " + value;
+			newValue += " - Reason: " + reasonValue;
+			this.expenses.add(newValue);
+		} else {
+			String value = String.format("$%.2f", newExpense);
+			String newValue = "- " + value;
+			newValue += " - Reason: " + reasonValue;
+			this.expenses.add(newValue);
+		}
 	}
 }
