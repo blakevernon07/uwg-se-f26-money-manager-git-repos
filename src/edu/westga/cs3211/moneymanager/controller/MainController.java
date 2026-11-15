@@ -1,5 +1,6 @@
 package edu.westga.cs3211.moneymanager.controller;
 
+import edu.westga.cs3211.moneymanager.model.Money;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -40,13 +41,17 @@ public class MainController {
 	@FXML
 	private Label leftOverTextField;
 	
+	private Money myMoney = new Money(0.0, 0.0);
+	
 	@FXML
 	private void handleAddIncome() {
 		
 		try {
-			Double income = Double.parseDouble(this.incomeTextField.getText());
+			double income = Double.parseDouble(this.incomeTextField.getText());
 			
-			this.currentIncomeTextField.setText(String.format("Income: $%.2f", income));
+			this.myMoney.setTotalIncome(this.myMoney.getTotalIncome() + income);
+			
+			this.currentIncomeTextField.setText(String.format("Income: $%.2f", this.myMoney.getTotalIncome()));
 			
 		} catch (NumberFormatException myException) {
 			Alert myAlert = new Alert(AlertType.ERROR);
