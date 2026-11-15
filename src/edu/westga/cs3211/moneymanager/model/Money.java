@@ -67,16 +67,12 @@ public class Money {
 	/**
 	 * Sets the totalIncome.
 	 * 
-	 * @precondition newTotalIncome !< 0.0.
+	 * @precondition none
 	 * @postcondition sets the new value for the totalIncome.
 	 * 
 	 * @param newTotalIncome The new value.
 	 */
 	public void setTotalIncome(double newTotalIncome) {
-		if (newTotalIncome < 0.0) {
-			throw new IllegalArgumentException("The new total income cannot be less than 0.");
-		}
-		
 		this.totalIncome = newTotalIncome;
 	}
 	
