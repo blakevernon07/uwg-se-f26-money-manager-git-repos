@@ -1,0 +1,149 @@
+commit d9d5c03715c5c69e588ef41394f9736259b7ac7a
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Sun Nov 15 18:22:57 2026 -0500
+
+    Added the product backlog into the documentation folder.
+
+commit dd9c864f1e52c78a65de2645af92058e1ebc91a2
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Sun Nov 15 18:21:13 2026 -0500
+
+    Edited the README file.
+
+commit 434a3c719e700629fab809ffe41195e88b505b81
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Sun Nov 15 18:17:19 2026 -0500
+
+    Edited the README.
+
+commit 16dc807906e569fef77738d9e272adf79da3b9f3
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Sun Nov 15 18:10:23 2026 -0500
+
+    Edited the README file to provide a brief description.
+
+commit d65c1699404903f860c209ef57b85f496d8a0dae
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Sun Nov 15 18:04:24 2026 -0500
+
+    Organized the project files into a code folder and docuementation folder.
+
+commit 61e5224a0b682196e5e76f573928488da8fa6e2e
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Sun Nov 15 17:58:03 2026 -0500
+
+    Formatted for checkstyle.
+
+commit 0f9aa30acf05bde5b624567d96f06cc6f83a04d7
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Sun Nov 15 17:47:20 2026 -0500
+
+    Made a slight change to the Money class to allow the balance to go into the negatives. I changed the setTotalIncome method.
+
+commit 24a2b4a8e6ef8b3f41f554a46b3563049b1d516a
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Sun Nov 15 16:55:31 2026 -0500
+
+    Edited the addExpense method to check if the expense is an expense or income to be added and modifies the string accordingly. I also updated the test class.
+
+commit 2897581c97650874a2ee6fd087295cd8d6ec6c95
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Sun Nov 15 16:46:26 2026 -0500
+
+    Updated the test class for the Money class to provide full coverage.
+
+commit 48991d1f778aa9af85c48e41cc8ab1cdebe2e3f2
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Sun Nov 15 16:35:32 2026 -0500
+
+    Implemented a reasonTextField so you can add reasons to each income and expenses you add and it lists it in the log.
+
+commit beea812f51e40a1a0d35d6791efbe13fa4a39edc
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Sun Nov 15 16:07:38 2026 -0500
+
+    Changed the MainController class and the gui to show a single balance that you can add to and subtract from using the income and expenses textFields.
+
+commit 2ade1c9c163b65ed0181c918d3429a0303700041
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Sun Nov 15 15:24:00 2026 -0500
+
+    Added a list of expenses to the Money class and added the ability to add an expense and it decrease the balance from your income.
+
+commit 911b481622990cad8fd8b09be1272fab14372094
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Sun Nov 15 14:50:52 2026 -0500
+
+    Changed the MainController class to be able to store the value of whatever the user inputs into the incomeTextField so it can be used in the code later.
+
+commit 061f0f5f46b83213fa3b9762b52e4457fe80ac75
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Sat Nov 14 18:43:40 2026 -0500
+
+    Changed the Money class to check if the income and expenses are less than zero instead of less than or equal to.
+
+commit 7239691c14380c334f2f788513e3aa2d0922207a
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Sat Nov 14 18:07:44 2026 -0500
+
+    Edited the handleAddIncome method to format the double and only accept a double.
+
+commit 61dc14e54ec2c07c15fdadd0327c4705a3eb423d
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Sat Nov 14 17:39:22 2026 -0500
+
+    Implemented the handAddIncome method in the MainController class to provide functionality to the income button.
+
+commit 07bfac33e2201d758cd864944bdb07e46654a481
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Sat Nov 14 17:17:12 2026 -0500
+
+    Implemented the design of the GUI in the MainController class.
+
+commit b296a7a087097cde3cb44896b4e4ec5297a3221a
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Fri Nov 13 19:21:57 2026 -0500
+
+    Added a test class that provides 100% coverage to the Money class.
+
+commit cc512683a1021909b3b312b518f2f14e175d844e
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Fri Nov 13 19:09:57 2026 -0500
+
+    Moved the DriverView.fxml class to allow the application to start, then I implemented the start method to allow functionality.
+
+commit b4789fa2d06c9a9a58352f69c61c50bbd2110a31
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Fri Nov 13 18:27:23 2026 -0500
+
+    Added javadoc comments to adbide by checkstyle.
+
+commit ac8891f8662add4e6421132998d9763a656d9816
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Wed Nov 11 20:14:44 2026 -0500
+
+    Implemented getters and setters for the income and expenses of the Money class.
+
+commit 834609695120974568310303480bbad6221e11ad
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Wed Nov 11 20:08:38 2026 -0500
+
+    Created a Money class and implemented the constructor for that class with an income and expense.
+
+commit 496e3f36c83d6385161d2f94221305815270b976
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Wed Nov 11 19:58:07 2026 -0500
+
+    Added the MainController, and DriverView classes to ensure the GUI functions correctly.
+
+commit 3d190727ecd6718f7537ad1cf1680e8a624b4570
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Wed Nov 11 19:10:38 2026 -0500
+
+    Implemented the Driver class to set up GUIs and MVC.
+
+commit d7030866072a012f16999d4fd908613c55399762
+Author: Blake Vernon <bsvernon1@gmail.com>
+Date:   Wed Nov 11 17:50:00 2026 -0500
+
+    Initial commit
