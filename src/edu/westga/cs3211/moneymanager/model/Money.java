@@ -1,5 +1,7 @@
 package edu.westga.cs3211.moneymanager.model;
 
+import java.util.ArrayList;
+
 /**
  * Defines the money for the money manager.
  * 
@@ -9,28 +11,30 @@ package edu.westga.cs3211.moneymanager.model;
 public class Money {
 
 	private double totalIncome;
-	private double totalExpenses;
+	private double totalExpense;
+	private ArrayList<Double> expenses;
 	
 	/**
 	 * Creates the totalIncome and totalExpenses.
 	 * 
 	 * @precondition totalIncome !< 0.0.
-	 * @precondition totalExpenses !< 0.0.
-	 * @postcondition totalIncome and totalExpenses are created.
+	 * @precondition totalExpense !< 0.0.
+	 * @postcondition totalIncome and expenses are created.
 	 * 
 	 * @param totalIncome The total amount of income for a user.
-	 * @param totalExpenses The total amount of expenses for a user.
+	 * @param totalExpense The total expense the user enters.
 	 */
-	public Money(double totalIncome, double totalExpenses) {
+	public Money(double totalIncome, double totalExpense) {
 		if (totalIncome < 0.0) {
 			throw new IllegalArgumentException("totalIncome cannot be less than 0.");
 		}
-		if (totalExpenses < 0.0) {
-			throw new IllegalArgumentException("totalExpenses cannot be less than 0.");
+		if (totalExpense < 0.0) {
+			throw new IllegalArgumentException("totalExpense cannot be less than 0.");
 		}
 		
 		this.totalIncome = totalIncome;
-		this.totalExpenses = totalExpenses;
+		this.totalExpense = totalExpense;
+		this.expenses = new ArrayList<Double>();
 	}
 	
 	/**
@@ -43,18 +47,27 @@ public class Money {
 	}
 	
 	/**
-	 * Gets the totalExpenses() {
+	 * Gets the totalExpense.
 	 * 
-	 * @return double The totalExpenses.
+	 * @return double The expense to return.
 	 */
-	public double getTotalExpenses() {
-		return this.totalExpenses;
+	public double getTotalExpense() {
+		return this.totalExpense;
+	}
+	
+	/**
+	 * Gets the list of expenses() {
+	 * 
+	 * @return ArrayList<Double> The list of expenses.
+	 */
+	public ArrayList<Double> getExpenses() {
+		return this.expenses;
 	}
 	
 	/**
 	 * Sets the totalIncome.
 	 * 
-	 * @precondition totalIncome !< 0.0.
+	 * @precondition newTotalIncome !< 0.0.
 	 * @postcondition sets the new value for the totalIncome.
 	 * 
 	 * @param newTotalIncome The new value.
@@ -68,18 +81,34 @@ public class Money {
 	}
 	
 	/**
-	 * Sets the totalExpenses.
+	 * Sets the totalExpense.
 	 * 
-	 * @precondition totalExpenses !< 0.0.
-	 * @postcondition sets the new value for the totalExpenses.
+	 * @precondition newTotalExpense !< 0.0
+	 * @postcondition sets the new value for the totalExpense.
 	 * 
-	 * @param newTotalExpenses The new value.
+	 * @param newTotalExpense The new value.
 	 */
-	public void setTotalExpenses(double newTotalExpenses) {
-		if (newTotalExpenses < 0.0) {
-			throw new IllegalArgumentException("The new total expenses cannot be less than 0.");
+	public void setTotalExpense(double newTotalExpense) {
+		if (newTotalExpense < 0.0) {
+			throw new IllegalArgumentException("The new total expense cannot be less than 0.");
 		}
 		
-		this.totalExpenses = newTotalExpenses;
+		this.totalExpense = newTotalExpense;
+	}
+	
+	/**
+	 * Adds an expense to the list.
+	 * 
+	 * @precondition newExpense !< 0.0.
+	 * @postcondition Adds a new value to the list of expenses.
+	 * 
+	 * @param newExpense The new value.
+	 */
+	public void addExpense(double newExpense) {
+		if (newExpense < 0.0) {
+			throw new IllegalArgumentException("The new expense cannot be less than 0.");
+		}
+		
+		this.expenses.add(newExpense);
 	}
 }

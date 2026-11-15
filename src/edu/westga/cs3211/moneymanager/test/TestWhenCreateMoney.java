@@ -23,7 +23,7 @@ public class TestWhenCreateMoney {
 		Money money = new Money(income, expenses);
 
 		assertEquals(income, money.getTotalIncome());
-		assertEquals(expenses, money.getTotalExpenses());
+		assertEquals(expenses, money.getTotalExpense());
 	}
 
 	/**
@@ -99,9 +99,9 @@ public class TestWhenCreateMoney {
 
 		Money money = new Money(100.0, 50.0);
 
-		money.setTotalExpenses(expenses);
+		money.setTotalExpense(expenses);
 
-		assertEquals(expenses, money.getTotalExpenses());
+		assertEquals(expenses, money.getTotalExpense());
 	}
 
 	/**
@@ -116,9 +116,9 @@ public class TestWhenCreateMoney {
 		Money money = new Money(100.0, 50.0);
 
 		assertThrows(IllegalArgumentException.class, () -> {
-			money.setTotalExpenses(expenses);
+			money.setTotalExpense(expenses);
 		});
 
-		assertEquals(50.0, money.getTotalExpenses());
+		assertEquals(50.0, money.getTotalExpense());
 	}
 }

@@ -1,6 +1,7 @@
 package edu.westga.cs3211.moneymanager.controller;
 
 import edu.westga.cs3211.moneymanager.model.Money;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -27,7 +28,7 @@ public class MainController {
 	private Label expenseListLabel;
 
 	@FXML
-	private ListView<?> expenseListView;
+	private ListView<Double> expenseListView;
 
 	@FXML
 	private TextField expensesTextField;
@@ -39,7 +40,7 @@ public class MainController {
 	private TextField incomeTextField;
 
 	@FXML
-	private Label leftOverTextField;
+	private Label balanceTextField;
 	
 	private Money myMoney = new Money(0.0, 0.0);
 	
@@ -59,6 +60,29 @@ public class MainController {
 			myAlert.setHeaderText("Invalid Income");
 			myAlert.setContentText("Please enter a valid number.");
 			myAlert.showAndWait();
+		}
+	}
+	
+	@FXML
+	private void handleAddExpense() {
+		
+		try {
+			double expense = Double.parseDouble(this.expensesTextField.getText());
+			
+			this.myMoney.addExpense(expense);
+			
+			this.myMoney.setTotalExpense(this.myMoney.getTotalExpense() + expense);
+			
+			this.expenseListView.setItems(FXCollections.observableArrayList(this.myMoney.getExpenses()));
+			
+			this.balanceTextField.setText(String.format("Balance: $%.2f", this.myMoney.getTotalIncome() - this.myMoney.getTotalExpense()));
+			
+		} catch (NumberFormatException myException) {
+			Alert myAlert = new Alert(AlertType.ERROR);
+	        myAlert.setTitle("Invalid Input");
+	        myAlert.setHeaderText("Invalid Expense");
+	        myAlert.setContentText("Please enter a valid expense.");
+	        myAlert.showAndWait();
 		}
 	}
 }
