@@ -12,7 +12,7 @@ public class Money {
 
 	private double totalIncome;
 	private double totalExpense;
-	private ArrayList<Double> expenses;
+	private ArrayList<String> expenses;
 	
 	/**
 	 * Creates the totalIncome and totalExpenses.
@@ -34,7 +34,7 @@ public class Money {
 		
 		this.totalIncome = totalIncome;
 		this.totalExpense = totalExpense;
-		this.expenses = new ArrayList<Double>();
+		this.expenses = new ArrayList<String>();
 	}
 	
 	/**
@@ -58,9 +58,9 @@ public class Money {
 	/**
 	 * Gets the list of expenses() {
 	 * 
-	 * @return ArrayList<Double> The list of expenses.
+	 * @return ArrayList<String> The list of expenses.
 	 */
-	public ArrayList<Double> getExpenses() {
+	public ArrayList<String> getExpenses() {
 		return this.expenses;
 	}
 	
@@ -100,15 +100,25 @@ public class Money {
 	 * Adds an expense to the list.
 	 * 
 	 * @precondition newExpense !< 0.0.
+	 * @precondition !reasonValue.isEmpty().
+	 * @precondition reasonValue != null.
 	 * @postcondition Adds a new value to the list of expenses.
 	 * 
 	 * @param newExpense The new value.
 	 */
-	public void addExpense(double newExpense) {
+	public void addExpense(double newExpense, String reasonValue) {
 		if (newExpense < 0.0) {
 			throw new IllegalArgumentException("The new expense cannot be less than 0.");
 		}
+		if (reasonValue == null) {
+			throw new IllegalArgumentException("reasonValue cannot be null.");
+		}
+		if (reasonValue.isEmpty()) {
+			throw new IllegalArgumentException("reasonValue cannot be empty.");
+		}
 		
-		this.expenses.add(newExpense);
+		String value = String.format("$%.2f", newExpense);
+		value += " - Reason: " + reasonValue;
+		this.expenses.add(value);
 	}
 }

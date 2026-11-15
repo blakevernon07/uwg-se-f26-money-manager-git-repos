@@ -28,7 +28,7 @@ public class MainController {
     private Label expenseListLabel;
 
     @FXML
-    private ListView<Double> expenseListView;
+    private ListView<String> expenseListView;
 
     @FXML
     private TextField expensesTextField;
@@ -38,6 +38,9 @@ public class MainController {
 
     @FXML
     private TextField incomeTextField;
+    
+    @FXML
+    private TextField reasonTextField;
 	
 	private Money myMoney = new Money(0.0, 0.0);
 	
@@ -47,15 +50,19 @@ public class MainController {
 		try {
 			double income = Double.parseDouble(this.incomeTextField.getText());
 			
+			this.myMoney.addExpense(income, this.reasonTextField.getText());
+			
+			this.expenseListView.setItems(FXCollections.observableArrayList(this.myMoney.getExpenses()));
+			
 			this.myMoney.setTotalIncome(this.myMoney.getTotalIncome() + income);
 			
 			this.balanceTextField.setText(String.format("Balance: $%.2f", this.myMoney.getTotalIncome()));
 			
-		} catch (NumberFormatException myException) {
+		} catch (IllegalArgumentException myException) {
 			Alert myAlert = new Alert(AlertType.ERROR);
 			myAlert.setTitle("Invalid Input");
-			myAlert.setHeaderText("Invalid Income");
-			myAlert.setContentText("Please enter a valid number.");
+			myAlert.setHeaderText("Invalid Income/Reason");
+			myAlert.setContentText("Please enter a valid income/reason.");
 			myAlert.showAndWait();
 		}
 	}
@@ -66,7 +73,7 @@ public class MainController {
 		try {
 			double expense = Double.parseDouble(this.expensesTextField.getText());
 			
-			this.myMoney.addExpense(expense);
+			this.myMoney.addExpense(expense, this.reasonTextField.getText());
 			
 			this.myMoney.setTotalExpense(expense);
 			
@@ -77,11 +84,11 @@ public class MainController {
 			
 			this.balanceTextField.setText(String.format("Balance: $%.2f", newBalance));
 			
-		} catch (NumberFormatException myException) {
+		} catch (IllegalArgumentException myException) {
 			Alert myAlert = new Alert(AlertType.ERROR);
 	        myAlert.setTitle("Invalid Input");
-	        myAlert.setHeaderText("Invalid Expense");
-	        myAlert.setContentText("Please enter a valid expense.");
+	        myAlert.setHeaderText("Invalid Expense/Reason");
+	        myAlert.setContentText("Please enter a valid expense/reason.");
 	        myAlert.showAndWait();
 		}
 	}
