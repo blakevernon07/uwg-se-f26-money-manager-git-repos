@@ -1,3 +1,9 @@
+commit 8e38012d4d69d32afd0a10c2373c3404d3d232f3
+Author: Blake Vernon <bvernon3@my.westga.edu>
+Date:   Sun Nov 15 18:43:10 2026 -0500
+
+    Added HW 4 use-case diagram and updated scenario to documentation folder.
+
 commit 367f630e9f2848bb8649e84310ffd30314cc34a5
 Author: Blake Vernon <bvernon3@my.westga.edu>
 Date:   Sun Nov 15 18:25:14 2026 -0500
