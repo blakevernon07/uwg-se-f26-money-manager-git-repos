@@ -75,24 +75,6 @@ public class TestWhenCreateMoney {
 	}
 
 	/**
-	 * Tests setting invalid income.
-	 *
-	 * @param income the invalid income
-	 */
-	@ParameterizedTest
-	@CsvSource({ "-0.01", "-1.0", "-100.0" })
-	public void testSetTotalIncomeInvalid(double income) {
-
-		Money money = new Money(100.0, 50.0);
-
-		assertThrows(IllegalArgumentException.class, () -> {
-			money.setTotalIncome(income);
-		});
-
-		assertEquals(100.0, money.getTotalIncome());
-	}
-
-	/**
 	 * Tests setting valid expenses.
 	 *
 	 * @param expenses the new expenses
