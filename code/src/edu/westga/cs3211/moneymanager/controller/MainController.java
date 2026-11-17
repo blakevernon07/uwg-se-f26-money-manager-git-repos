@@ -25,10 +25,10 @@ public class MainController {
 	private Button expenseButton;
 
 	@FXML
-	private Label expenseListLabel;
+	private Label logListLabel;
 
 	@FXML
-	private ListView<String> expenseListView;
+	private ListView<String> logListView;
 
 	@FXML
 	private TextField expensesTextField;
@@ -52,7 +52,7 @@ public class MainController {
 
 			this.myMoney.addExpense(income, this.reasonTextField.getText(), true);
 
-			this.expenseListView.setItems(FXCollections.observableArrayList(this.myMoney.getExpenses()));
+			this.logListView.setItems(FXCollections.observableArrayList(this.myMoney.getExpenses()));
 
 			this.myMoney.setTotalIncome(this.myMoney.getTotalIncome() + income);
 
@@ -77,7 +77,7 @@ public class MainController {
 
 			this.myMoney.setTotalExpense(expense);
 
-			this.expenseListView.setItems(FXCollections.observableArrayList(this.myMoney.getExpenses()));
+			this.logListView.setItems(FXCollections.observableArrayList(this.myMoney.getExpenses()));
 
 			double newBalance = this.myMoney.getTotalIncome() - this.myMoney.getTotalExpense();
 			this.myMoney.setTotalIncome(newBalance);
